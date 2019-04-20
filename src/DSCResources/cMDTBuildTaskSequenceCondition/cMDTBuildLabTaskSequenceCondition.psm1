@@ -40,11 +40,13 @@ class cMDTBuildTaskSequenceCondition
         else {
             $step = $group.step | Where-Object {$_.Name -eq $this.Name}
         }
-		
+
+<#
 		$operator = $step.condition.operator
 		if ($operator) {
 			$type = $operator.type
 		}
+#>
 		
 		return $present
 	}
