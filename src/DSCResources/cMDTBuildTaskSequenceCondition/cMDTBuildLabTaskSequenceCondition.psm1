@@ -47,7 +47,7 @@ class cMDTBuildTaskSequenceCondition
 			$type = $operator.type
 		}
 #>
-		
+
 		return $present
 	}
 
