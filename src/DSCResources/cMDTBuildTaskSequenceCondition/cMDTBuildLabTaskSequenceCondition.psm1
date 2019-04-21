@@ -27,7 +27,7 @@ class cMDTBuildTaskSequenceCondition
 
     [void] Set()
     {
-	}
+}
 
     [bool] Test()
     {
@@ -63,4 +63,3 @@ class cMDTBuildTaskSequenceCondition
         return $xml
     }
 }
-
