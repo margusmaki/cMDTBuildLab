@@ -31,7 +31,7 @@ class cMDTBuildTaskSequenceCondition
 
     [void] Set()
     {
-        $TS = $this.LoadTaskSequence()
+        #$TS = $this.LoadTaskSequence()
     }
 
     [bool] Test()
@@ -49,7 +49,13 @@ class cMDTBuildTaskSequenceCondition
         $operator = $step.condition.operator
         if ($operator) {
             switch ($operator.type) {
-                "Equal" {
+                "and" {
+                    #$this.SetTaskSequenceVariable($TS, $newStep)
+                }
+                "any" {
+                    #$this.SetTaskSequenceVariable($TS, $newStep)
+                }
+                "not" {
                     #$this.SetTaskSequenceVariable($TS, $newStep)
                 }
             }
