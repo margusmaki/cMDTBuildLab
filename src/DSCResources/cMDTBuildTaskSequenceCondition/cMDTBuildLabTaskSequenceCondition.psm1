@@ -19,6 +19,10 @@ class cMDTBuildTaskSequenceCondition
     [DscProperty(Mandatory)]
     [string]$GroupName
 
+    # SubGroup for step
+    [DscProperty()]
+    [string]$SubGroup
+
     [DscProperty(Mandatory)]
     [string]$PSDriveName
 
@@ -27,13 +31,13 @@ class cMDTBuildTaskSequenceCondition
 
     [void] Set()
     {
-}
+    }
 
     [bool] Test()
     {
-		$TS = $this.LoadTaskSequence()
+        $TS = $this.LoadTaskSequence()
         $present = $false
-		$group = $TS.sequence.group | Where-Object {$_.Name -eq $this.GroupName}
+        $group = $TS.sequence.group | Where-Object {$_.Name -eq $this.GroupName}
         if ($this.Type -eq "Group") {
             $step = $group.group | Where-Object {$_.Name -eq $this.Name}
         }
@@ -42,19 +46,19 @@ class cMDTBuildTaskSequenceCondition
         }
 
 <#
-		$operator = $step.condition.operator
-		if ($operator) {
-			$type = $operator.type
-		}
+        $operator = $step.condition.operator
+        if ($operator) {
+            $type = $operator.type
+        }
 #>
 
-		return $present
-	}
+        return $present
+    }
 
     [cMDTBuildTaskSequenceCondition] Get()
     {
-		return $this
-	}
+        return $this
+    }
 
     [xml] LoadTaskSequence()
     {
