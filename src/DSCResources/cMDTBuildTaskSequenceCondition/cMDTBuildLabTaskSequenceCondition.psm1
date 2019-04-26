@@ -31,6 +31,7 @@ class cMDTBuildTaskSequenceCondition
 
     [void] Set()
     {
+        $TS = $this.LoadTaskSequence()
     }
 
     [bool] Test()
@@ -45,12 +46,10 @@ class cMDTBuildTaskSequenceCondition
             $step = $group.step | Where-Object {$_.Name -eq $this.Name}
         }
 
-<#
         $operator = $step.condition.operator
         if ($operator) {
             $type = $operator.type
         }
-#>
 
         return $present
     }
