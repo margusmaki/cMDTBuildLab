@@ -48,7 +48,12 @@ class cMDTBuildTaskSequenceCondition
 
         $operator = $step.condition.operator
         if ($operator) {
-            $type = $operator.type
+            switch ($operator.type) {
+                "Equal" {
+                    #$this.SetTaskSequenceVariable($TS, $newStep)
+                }
+            }
+
         }
 
         return $present
